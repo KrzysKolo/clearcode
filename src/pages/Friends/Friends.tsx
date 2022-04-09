@@ -2,6 +2,7 @@ import React, { useContext} from 'react';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendsStyles } from './Friends.module.scss';
+import { Header } from '../../components';
 
 const style = bemCssModules(FriendsStyles);
 
@@ -11,7 +12,7 @@ const Friends: React.FC = () => {
   const people = friendsList.map(item => <p key={item.id}>{item.firstName}{item.lastName}</p>)
   return (
     <main className={style()}>
-
+      <Header />
       {people}
     </main>
   )
