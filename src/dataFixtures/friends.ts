@@ -114,5 +114,4 @@ const friends: Friend[] = [
     photoUrl: "https://minimaltoolkit.com/images/randomdata/female/16.jpg"
   }
 ];
-
 export default friends;
