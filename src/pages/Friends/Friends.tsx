@@ -1,27 +1,19 @@
-import React, { useContext, useEffect, useState} from 'react';
+import React, { useContext} from 'react';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
-import  friends  from '../../dataFixtures/friends';
-import { Friend } from '../../models/Friend';
+import { default as bemCssModules } from 'bem-css-modules';
+import { default as FriendsStyles } from './Friends.module.scss';
 
-
+const style = bemCssModules(FriendsStyles);
 
 const Friends: React.FC = () => {
-/*   const [friendsList, setFriendsList] = useState<Friend[]>([])
-
-  function getList() {
-    setFriendsList(friends);
-  }
-
-  useEffect(() => {
-   getList();
-  }, []) */
   const { friendsList } = useContext(FriendsContext) as FriendContextType;
   console.log(friendsList)
   const people = friendsList.map(item => <p key={item.id}>{item.firstName}{item.lastName}</p>)
   return (
-    <div>
+    <main className={style()}>
+
       {people}
-    </div>
+    </main>
   )
 }
 
