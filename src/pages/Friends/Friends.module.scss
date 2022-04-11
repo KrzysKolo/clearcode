@@ -1,25 +1,13 @@
 .container {
   height: 100vh;
+  min-width: 420px;
   width: 100vw;
   margin: 0 auto;
-  background-color: bisque;
-}
-
-@media screen and (min-width: 400px) {
-  .container {
-    background-color: lightgreen;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .container {
-    background-color: lightblue;
-  }
 }
 @media screen and (min-width: 1440px) {
   .container {
-    background-color: navajowhite;
     max-height: 1024px;
     max-width: 1440px;
+    background-color: sandybrown;
   }
 }

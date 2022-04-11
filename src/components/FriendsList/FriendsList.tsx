@@ -14,7 +14,7 @@ const FriendsList: React.FC = () => {
   const people = friendsList.map((item) => <FriendBox key={item.id} friend={item} />)
 
   return (
-    <div>
+    <div className={style()}>
       {people}
     </div>
   )

@@ -4,6 +4,7 @@ import { default as FriendDetailsStyles } from './FriendDetails.module.scss';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
 import { useParams } from 'react-router-dom';
 import { Friend } from "../../models/Friend";
+import { FriendDetailsBox } from '../../components';
 
 const style = bemCssModules(FriendDetailsStyles);
 
@@ -19,7 +20,9 @@ const FriendDetails = () => {
   }, [friendsList, id]);
   console.log(friendDetails)
   return (
-    <div className={style()}>FriendDetails</div>
+    <div className={style()}>
+      {friendDetails.map((item) => <FriendDetailsBox key={item.id} friend={item} />)}
+    </div>
   )
 }
 
