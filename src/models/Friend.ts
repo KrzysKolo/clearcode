@@ -13,4 +13,5 @@ export interface Friend {
 
 export type FriendProps = {
   friend: Friend;
+  onClick?: () => void;
 }
