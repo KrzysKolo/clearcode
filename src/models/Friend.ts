@@ -10,3 +10,7 @@ export interface Friend {
   status: Status;
   photoUrl: string;
 }
+
+export type FriendProps = {
+  friend: Friend;
+}
