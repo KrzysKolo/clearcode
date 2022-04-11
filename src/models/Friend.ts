@@ -12,8 +12,5 @@ export interface Friend {
 }
 
 export type FriendProps = {
-  firstName: string;
-  lastName: string;
-  status: Status;
-  photoUrl: string;
+  friend: Friend;
 }
