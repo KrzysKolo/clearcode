@@ -1,0 +1,40 @@
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin: 94px auto;
+  &__input {
+    padding: 8px 46px 8px 16px;
+    width: 310px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #E9E9E9;
+    box-sizing: border-box;
+    border-radius: 4px;
+    outline: none;
+    &:hover {
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+    }
+    &:focus {
+      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+ .wrapper{
+   &__input {
+     width: 427px;
+   }
+ }
+}
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    &__input {
+      width: 467px;
+    };
+  }
+}

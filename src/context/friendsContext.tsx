@@ -5,7 +5,10 @@ import { Friend } from "../models/Friend";
 
 
 export type FriendContextType = {
-  friendsList: Friend[];
+  friendsList?: Friend[];
+  filteredFriend: Friend[];
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
   removeFriend: (id: string) => void;
  /*  updateFriend: (status: STATUS) => void; */
@@ -16,6 +19,8 @@ export const FriendsContext = createContext<FriendContextType | null>(null);
 
 const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
   const [friendsList, setFriendsList] = useState<Friend[]>([]);
+  const [filteredFriend, setFilteredFriend] =useState<Friend[]>([]);
+	const [searchValue, setSearchValue] =useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -28,16 +33,37 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
 
   };
 
-  const removeFriend = (id: string) => {
-    setFriendsList([...friendsList.filter(item => item.id !== id)]);
-  };
-
   useEffect(() => {
     getList();
   }, []);
 
+  const removeFriend = (id: string) => {
+    setFriendsList([...friendsList.filter(item => item.id !== id)]);
+  };
+  useEffect(() => {
+    if (searchValue.trim() === "") {
+      setFilteredFriend(friendsList);
+      return;
+    }
+    else {
+      if (searchValue.trim() !== "") {
+        setFilteredFriend(
+          friendsList.filter((friend) => {
+            const fullName = `${friend.firstName} ${friend.lastName}`;
+            return fullName
+              .toLowerCase()
+              .split(" ")
+              .join("")
+              .includes(searchValue.toLowerCase().split(" ").join(""));
+          })
+        )
+      }
+    }
+    }, [searchValue, friendsList]);
+
+
 return (
-  <FriendsContext.Provider value={{ friendsList, isLoading, removeFriend }}>
+  <FriendsContext.Provider value={{ filteredFriend, isLoading, removeFriend, searchValue, setSearchValue }}>
     {children}
   </FriendsContext.Provider>
 );

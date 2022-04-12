@@ -13,6 +13,6 @@ export interface Friend {
 
 export type FriendProps = {
   friend: Friend;
-  accept?: () => void;
-  remove?: () => void;
+  accept?: React.MouseEventHandler<HTMLElement> | any;
+  remove?: React.MouseEventHandler<HTMLElement> | any;
 }
