@@ -8,12 +8,13 @@ import Badges from '../Badges';
 
 const style = bemCssModules(FriendLinkStyles);
 
-const FriendLink: React.FC<FriendProps> = ({ friend }) => {
+const FriendLink: React.FC<FriendProps> = ({ friend, remove }) => {
   const { firstName, lastName, status, photoUrl, id} = friend;
 
   return (
-    <Link to={`/friends/${id}`} className={style('link')}>
-      <div className={style()}>
+  <>
+    <div className={style()}>
+      <Link to={`/friends/${id}`} className={style('link')}>
         <div className={style('imageBox')}>
           <img src={photoUrl} alt={firstName} className={style('image')} />
         </div>
@@ -25,11 +26,14 @@ const FriendLink: React.FC<FriendProps> = ({ friend }) => {
             <Badges title={status} variant={true} />
           </div>
         </div>
-        <div className={style('buttonsBox')}>
-          <Button title="Remove" />
-        </div>
-        </div>
-    </Link>
+      </Link>
+      <div className={style('buttonsBox')}>
+        <Button title="Remove" onClick={remove} />
+      </div>
+    </div>
+  </>
+
+
   )
 }
 

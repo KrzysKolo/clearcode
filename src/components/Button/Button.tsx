@@ -7,11 +7,12 @@ const style = bemCssModules(ButtonStyles);
 export type ButtonProps = {
   title: string;
   variant?: boolean;
+ 
 }
 
-const Button: React.FC<ButtonProps> = ({title, variant}) => {
+const Button: React.FC<ButtonProps> = ({title, variant, onClick}) => {
   return (
-    <div className={variant ? style('variant') : style() }> {title}</div>
+    <div className={variant ? style('variant') : style()} onClick={onClick}> {title}</div>
   )
 }
 

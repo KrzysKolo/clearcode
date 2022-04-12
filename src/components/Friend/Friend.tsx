@@ -7,7 +7,7 @@ import Badges from '../Badges';
 
 const style = bemCssModules(FriendStyles);
 
-const Friend: React.FC<FriendProps> = ({ friend, onClick }) => {
+const Friend: React.FC<FriendProps> = ({ friend, accept, remove }) => {
   const { firstName, lastName, status, photoUrl } = friend;
 
   return (
@@ -20,12 +20,12 @@ const Friend: React.FC<FriendProps> = ({ friend, onClick }) => {
           <h1>{firstName} {lastName}</h1>
         </div>
         <div className={style('statusBox')}>
-          <Badges title={status} onClick={onClick} />
+          <Badges title={status} />
         </div>
       </div>
       <div className={style('buttonsBox')}>
-        <Button title="Reject" />
-        <Button title="Accept" variant={true} />
+        <Button title="Reject" onClick={remove} />
+        <Button title="Accept" variant={true} onClick={accept}  />
       </div>
     </div>
   )

@@ -7,11 +7,11 @@ const style = bemCssModules(BadgesStyles);import React from 'react';
 export type BadgetsProps = {
   title: string;
   variant?: boolean;
-  onClick?: () => void;
 }
-const Badges: React.FC<BadgetsProps> = ({ title, variant, onClick}) => {
+
+const Badges: React.FC<BadgetsProps> = ({ title, variant}) => {
   return (
-    <div className={variant ? style('variant') : style()} onClick={onClick}>
+    <div className={variant ? style('variant') : style()} >
       <h2>{title.toLowerCase()}</h2>
     </div>
   )

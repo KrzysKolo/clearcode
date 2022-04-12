@@ -9,6 +9,7 @@ const style = bemCssModules(FriendsStyles);
 
 const FriendsList: React.FC = () => {
 
+
   const { friendsList } = useContext(FriendsContext) as FriendContextType;
   console.log(friendsList)
   const people = friendsList.map((item) => <FriendBox key={item.id} friend={item} />)
