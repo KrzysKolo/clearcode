@@ -10,15 +10,17 @@ const style = bemCssModules(FriendDetailsStyles);
 
 const FriendDetails = () => {
   const [friendDetails, setFriendDetails] = useState<Friend[]>([]);
-  const { friendsList } = useContext(FriendsContext) as FriendContextType;
+  const { filteredFriend } = useContext(FriendsContext) as FriendContextType;
   const { id } = useParams();
 
   useEffect(() => {
-    if (friendsList) {
-      setFriendDetails(friendsList.filter((friend) => friend.id === id));
+    if (filteredFriend) {
+      setFriendDetails(filteredFriend.filter((friend) => friend.id === id));
     }
-  }, [friendsList, id]);
+  }, [filteredFriend, id]);
+  console.log(id)
   console.log(friendDetails)
+
   return (
     <div className={style()}>
       {friendDetails.map((item) => <FriendDetailsBox key={item.id} friend={item} />)}

@@ -14,22 +14,20 @@ const FriendBox: React.FC<FriendProps> = ({ friend }) => {
   const { removeFriend } = useContext(FriendsContext) as FriendContextType;
   const { firstName, lastName, status, photoUrl, id } = friend;
   const [stateStatus, setStateStatus] = useState<string>(status)
-  const handleChangePaggingToAccept = () => {
-    console.log("zmieniam")
-    console.log(stateStatus)
+
+  const handleChangePendingToAccept = () => {
     setStateStatus("ACCEPTED");
   };
 
   const handleRemoveFriend = () => {
     removeFriend(id);
-    console.log("xzxzxzxz")
   };
 
   console.log(stateStatus)
   console.log(status)
   return (
     <div className={style()}>
-      {stateStatus === "ACCEPTED"  ? <FriendLink friend={friend} remove={handleRemoveFriend} /> : <Friend friend={friend} accept={handleChangePaggingToAccept} remove={handleRemoveFriend} />}
+      {stateStatus === "ACCEPTED"  ? <FriendLink friend={friend} remove={handleRemoveFriend} /> : <Friend friend={friend} accept={handleChangePendingToAccept} remove={handleRemoveFriend} />}
     </div>
   )
 }

@@ -40,6 +40,7 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
   const removeFriend = (id: string) => {
     setFriendsList([...friendsList.filter(item => item.id !== id)]);
   };
+
   useEffect(() => {
     if (searchValue.trim() === "") {
       setFilteredFriend(friendsList);
