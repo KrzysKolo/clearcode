@@ -1,0 +1,32 @@
+@import './../../styles/variables';
+
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+  &__pagination{
+    display: flex;
+    list-style: none;
+    margin-right: 2rem;
+  }
+  &__active {
+    color: $accentColor;
+  }
+  &__page-item {
+    background: $primaryGradient;
+  }
+  li {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 10px;
+    a {
+    padding: 5px;
+    color: $black;
+    }
+
+  }
+}

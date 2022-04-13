@@ -18,8 +18,6 @@ const FriendDetails = () => {
       setFriendDetails(filteredFriend.filter((friend) => friend.id === id));
     }
   }, [filteredFriend, id]);
-  console.log(id)
-  console.log(friendDetails)
 
   return (
     <div className={style()}>

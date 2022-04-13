@@ -11,17 +11,23 @@ export interface Friend {
   lastName: string;
   status: Status;
   photoUrl: string;
-}
+};
 
 export type FriendProps = {
   friend: Friend;
   accept?: React.MouseEventHandler<HTMLElement> | any;
   remove?: React.MouseEventHandler<HTMLElement> | any;
-}
+};
 
 export type FriendEditProps = {
   friend: Friend;
   showFormEditFriend: boolean;
   setShowEditFriend: Dispatch<SetStateAction<boolean>>;
-
 };
+
+export type PaginateProps = {
+  pages: number;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
+  currentFriends: Friend[];
+  filteredFriend: Friend[];
+}
