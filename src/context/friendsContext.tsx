@@ -62,6 +62,7 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
     }
     else {
       if (searchValue.trim() !== "") {
+        let timer = setTimeout(() => {
         setFilteredFriend(
           friendsList.filter((friend) => {
             const fullName = `${friend.firstName} ${friend.lastName}`;
@@ -71,7 +72,9 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
               .join("")
               .includes(searchValue.toLowerCase().split(" ").join(""));
           })
-        )
+          )
+          clearTimeout(timer)
+        }, 1000);
       }
     }
     }, [searchValue, friendsList]);
