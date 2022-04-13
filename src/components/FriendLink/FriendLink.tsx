@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendLinkStyles } from './FriendLink.module.scss';
 import { FriendProps } from './../../models/Friend';
 import Button from '../Button';
 import Badges from '../Badges';
+import { FriendContextType, FriendsContext } from '../../context/friendsContext';
 
 const style = bemCssModules(FriendLinkStyles);
 
 const FriendLink: React.FC<FriendProps> = ({ friend, remove }) => {
-  const { firstName, lastName, status, photoUrl, id} = friend;
+  const { firstName, lastName, status, photoUrl, id } = friend;
+  const { newFirstName, newLastName} = useContext(FriendsContext) as FriendContextType;
 
   return (
   <>

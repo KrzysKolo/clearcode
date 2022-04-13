@@ -7,7 +7,7 @@ const style = bemCssModules(ButtonStyles);
 export type ButtonProps = {
   title: string;
   variant?: boolean;
-  onClick: React.MouseEventHandler<HTMLElement>;
+  onClick: React.MouseEventHandler<HTMLElement> | any;
 }
 
 const Button: React.FC<ButtonProps> = ({title, variant, onClick}) => {

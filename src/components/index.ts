@@ -8,4 +8,5 @@ export { default as FriendLink } from './FriendLink';
 export { default as FriendBox } from './FriendBox';
 export { default as FriendDetailsBox } from './FriendDetailsBox';
 export { default as FriendSearch } from './FriendSearch';
+export { default as FriendEdit } from './FriendEdit';
 

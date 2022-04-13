@@ -12,7 +12,7 @@ const style = bemCssModules(FriendBoxStyles);
 
 const FriendBox: React.FC<FriendProps> = ({ friend }) => {
 
-  const { removeFriend, acceptFriend, setStateStatus, stateStatus } = useContext(FriendsContext) as FriendContextType;
+  const { removeFriend, acceptFriend, setStateStatus, stateStatus} = useContext(FriendsContext) as FriendContextType;
   const { firstName, lastName, status, photoUrl, id } = friend;
 
   let navigate = useNavigate();

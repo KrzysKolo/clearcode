@@ -4,6 +4,7 @@ import { default as FriendDetailsBoxStyles } from './FriendDetailsBox.module.scs
 import { Friend, FriendProps } from '../../models/Friend';
 import { useNavigate } from 'react-router-dom';
 import Button from '../Button';
+import FriendEdit from '../FriendEdit';
 
 const style = bemCssModules(FriendDetailsBoxStyles);
 
@@ -11,13 +12,17 @@ const FriendDetailsBox: React.FC<FriendProps> = ({ friend }) => {
 
   const { firstName, lastName, status, photoUrl } = friend;
 
+  const [showFormEditFriend, setShowEditFriend] = useState<boolean>(false);
+
+
   let navigate = useNavigate();
   const handleBackToList = () => {
     navigate('/friends')
   };
   const editName = () => {
-    console.log("edytuj")
+    setShowEditFriend(prev => !prev);
   };
+
   return (
     <>
 
@@ -40,7 +45,7 @@ const FriendDetailsBox: React.FC<FriendProps> = ({ friend }) => {
         </div>
 
       </div>
-
+      <FriendEdit showFormEditFriend={showFormEditFriend} setShowEditFriend={setShowEditFriend} friend={friend} />
     </>
   )
 }
