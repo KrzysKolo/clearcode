@@ -6,5 +6,5 @@
   <img src="demo/demo5.png" alt="szyfr cezara" width="550px">
   <img src="demo/demo6.png" alt="szyfr cezara" width="550px">
   <img src="demo/demo7.png" alt="szyfr cezara" width="550px">
-  <img src="demo/demo8.png" alt="szyfr cezara" width="550px">
-  <img src="demo/demo9.png" alt="szyfr cezara" width="550px">
+  <img src="demo/demo8.png" alt="szyfr cezara" width="250px">
+  <img src="demo/demo9.png" alt="szyfr cezara" width="250px">
