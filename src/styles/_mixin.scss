@@ -1,0 +1,89 @@
+@import '../styles/variables';
+
+//FLEX COLUMN
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+//FLEX ROX CENTER CENTER
+@mixin rowCenterCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//FRIEND IMAGE
+@mixin friendImage {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+
+//BADGES
+@mixin  badget(
+  $flex-direction: row,
+  $justify-content: center,
+  $align-items: center,
+  $padding: 4px 8px,
+  $width: 59px,
+  $height: 16px,
+  $box-shadow: $primaryBoxSchadow,
+  $border-radius: $borderRadius-4,
+  $cursor: pointer,
+) {
+  align-items: $align-items;
+  box-shadow: $box-shadow;
+  border-radius: $borderRadius-4;
+  cursor: $cursor;
+  display: flex;
+  flex-direction: $flex-direction;
+  height: $height;
+  justify-content: $justify-content;
+  padding: $padding;
+  width: $width;
+}
+
+@mixin h2InBages (
+  $font-style: normal,
+  $font-weight: 900,
+  $font-size: 10px,
+  $line-height: 8px,
+) {
+  font-style: $font-style;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+
+//BUTTON
+@mixin button (
+  $display: flex,
+  $flex-direction: row,
+  $justify-content: center,
+  $align-items: center,
+  $padding: $padding-8,
+  $width: 120px,
+  $height: 32px,
+  $box-sizing: border-box,
+  $border-radius: $borderRadius-8,
+  $margin: 0 4px,
+  $font-size: 13px,
+  $font-weight: 900,
+  $cursor: pointer,
+) {
+  align-items: $align-items;
+  box-sizing: $box-sizing;
+  border-radius: $border-radius;
+  cursor: $cursor;
+  display: $display;
+  flex-direction: $flex-direction;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  height: $height;
+  justify-content: $justify-content;
+  margin: $margin;
+  padding: $padding;
+  width: $width;
+}

@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendStyles } from './Friend.module.scss';
 import { FriendProps } from './../../models/Friend';
-import Button from '../Button';
-import Badges from '../Badges';
+import { Badges, Button } from '../';
 
 const style = bemCssModules(FriendStyles);
 
 const Friend: React.FC<FriendProps> = ({ friend, accept, remove }) => {
+
   const { firstName, lastName, status, photoUrl } = friend;
 
   return (

@@ -1,7 +1,7 @@
+@import './../../styles/mixin';
+
 .wrapper {
-  width: 310px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include rowCenterCenter;
   margin-bottom: 15px;
+  width: 310px;
 }

@@ -9,10 +9,11 @@ const FriendSearch: React.FC = () => {
 
   const {setSearchValue  } = useContext(FriendsContext) as FriendContextType;;
   const [value, setValue] = useState<string>("");
+
   const handleChange = (e: { target: { value: string; }; }) => {
     setValue(e.target.value.toLowerCase());
-
   };
+
   useEffect(() => {
     setSearchValue(value);
     console.log(value)

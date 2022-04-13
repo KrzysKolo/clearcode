@@ -30,4 +30,15 @@ export type PaginateProps = {
   setCurrentPage: Dispatch<SetStateAction<number>>;
   currentFriends: Friend[];
   filteredFriend: Friend[];
-}
+};
+
+export type ButtonProps = {
+  title: string;
+  variant?: boolean;
+  onClick: React.MouseEventHandler<HTMLElement> | any;
+};
+
+export type BadgetsProps = {
+  title: string;
+  variant?: boolean;
+};

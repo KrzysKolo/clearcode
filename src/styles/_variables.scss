@@ -9,3 +9,15 @@ $secondaryTextColor: #6F6F6F;
 //GRADIENT
 $primaryGradient: linear-gradient(90deg, #F2709C 0%, #FF9472 100%);
 $secondaryGradient: linear-gradient(90deg, #84FAB0 0%, #8FD3F4 100%);
+
+//BOXSHADOW
+$primaryBoxSchadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+$boxSchadowButtonHover: 0px 4px 8px 0px #00000040;
+$boxSchadowInputHover: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+
+//BORDER-RADIUS
+$borderRadius-4: 4px;
+$borderRadius-8: 8px;
+
+//PADDING
+$padding-8: 8px;

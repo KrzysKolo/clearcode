@@ -1,31 +1,29 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendDetailsBoxStyles } from './FriendDetailsBox.module.scss';
-import { Friend, FriendProps } from '../../models/Friend';
+import { Button, FriendEdit } from '../';
+import { FriendProps } from '../../models/Friend';
 import { useNavigate } from 'react-router-dom';
-import Button from '../Button';
-import FriendEdit from '../FriendEdit';
+
 
 const style = bemCssModules(FriendDetailsBoxStyles);
 
 const FriendDetailsBox: React.FC<FriendProps> = ({ friend }) => {
 
   const { firstName, lastName, status, photoUrl } = friend;
-
   const [showFormEditFriend, setShowEditFriend] = useState<boolean>(false);
-
 
   let navigate = useNavigate();
   const handleBackToList = () => {
     navigate('/friends')
   };
+
   const editName = () => {
     setShowEditFriend(prev => !prev);
   };
 
   return (
     <>
-
       <div className={style()}>
         <div className={style("button")}>
           <Button title="<< Back to list" variant={true} onClick={handleBackToList}  />
@@ -43,7 +41,6 @@ const FriendDetailsBox: React.FC<FriendProps> = ({ friend }) => {
             </div>
           </div>
         </div>
-
       </div>
       <FriendEdit showFormEditFriend={showFormEditFriend} setShowEditFriend={setShowEditFriend} friend={friend} />
     </>

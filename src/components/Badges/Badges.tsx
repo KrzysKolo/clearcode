@@ -1,13 +1,8 @@
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as BadgesStyles } from './Badges.module.scss';
+import { BadgetsProps } from '../../models/Friend';
 
 const style = bemCssModules(BadgesStyles);import React from 'react';
-
-
-export type BadgetsProps = {
-  title: string;
-  variant?: boolean;
-}
 
 const Badges: React.FC<BadgetsProps> = ({ title, variant}) => {
   return (

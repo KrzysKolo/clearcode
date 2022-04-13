@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendDetailsStyles } from './FriendDetails.module.scss';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
-import { useParams } from 'react-router-dom';
 import { Friend } from "../../models/Friend";
 import { FriendDetailsBox } from '../../components';
+import { useParams } from 'react-router-dom';
 
 const style = bemCssModules(FriendDetailsStyles);
 

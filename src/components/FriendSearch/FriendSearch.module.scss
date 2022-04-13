@@ -1,26 +1,23 @@
+@import './../../styles/mixin';
+@import './../../styles/variables';
 
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
+  @include rowCenterCenter;
   margin: 94px auto;
   &__input {
+    background: $white;
+    box-sizing: border-box;
+    border: 1px solid #E9E9E9;
+    border-radius:$borderRadius-4;
+    height: 30px;
+    outline: none;
     padding: 8px 46px 8px 16px;
     width: 310px;
-    height: 30px;
-    background: #FFFFFF;
-    border: 1px solid #E9E9E9;
-    box-sizing: border-box;
-    border-radius: 4px;
-    outline: none;
     &:hover {
-      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: $boxSchadowInputHover;
     }
     &:focus {
-      box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1);
-
+      box-shadow: $boxSchadowInputHover;
     }
   }
 }

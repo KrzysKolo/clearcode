@@ -1,22 +1,16 @@
-import React, { useContext, useState } from 'react';
-import { FriendProps, Status } from '../../models/Friend';
-import Friend from '../Friend/Friend';
-import FriendLink from '../FriendLink';
+import React, { useContext } from 'react';
+import { FriendProps } from '../../models/Friend';
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendBoxStyles } from './FriendBox.module.scss';
+import { Friend, FriendLink } from '../';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
-import { useNavigate } from 'react-router';
-import Paginate from '../Paginate';
-
 
 const style = bemCssModules(FriendBoxStyles);
 
 const FriendBox: React.FC<FriendProps> = ({ friend }) => {
 
   const { removeFriend, acceptFriend, setStateStatus, stateStatus} = useContext(FriendsContext) as FriendContextType;
-  const { firstName, lastName, status, photoUrl, id } = friend;
-
-  let navigate = useNavigate();
+  const {status, id } = friend;
 
   const handleChangePendingToAccept = () => {
     acceptFriend(id);
@@ -30,7 +24,6 @@ const FriendBox: React.FC<FriendProps> = ({ friend }) => {
   return (
     <div className={style()}>
       {status === "ACCEPTED" ? <FriendLink friend={friend} remove={handleRemoveFriend} /> : <Friend friend={friend} accept={handleChangePendingToAccept} remove={handleRemoveFriend} />}
-
     </div>
   )
 }

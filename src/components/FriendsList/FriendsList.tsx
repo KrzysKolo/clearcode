@@ -12,6 +12,7 @@ const FriendsList: React.FC = () => {
   const [friendsPerPage] = useState(9);
   const indexOfLastFriend = currentPage * friendsPerPage;
   const indexOfFirstFriend = indexOfLastFriend - friendsPerPage;
+
   const { filteredFriend } = useContext(FriendsContext) as FriendContextType;
   const currentFriends = filteredFriend.slice(indexOfFirstFriend, indexOfLastFriend);
   const people = currentFriends.map((item) => <FriendBox key={item.id} friend={item} />)

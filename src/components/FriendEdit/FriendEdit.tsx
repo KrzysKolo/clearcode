@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendEditStyles } from './FriendEdit.module.scss';
-import Button from '../Button';
+import { Button } from '../';
 import { FriendEditProps } from '../../models/Friend';
-import { useNavigate, useParams } from 'react-router';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
-
+import { useNavigate } from 'react-router';
 
 const style = bemCssModules(FriendEditStyles);
 
@@ -14,7 +13,6 @@ const FriendEdit: React.FC<FriendEditProps> = ({ showFormEditFriend, setShowEdit
   const [firstName, setFirstName] = useState<string>(friend.firstName)
   const [lastName, setLastName] = useState<string>(friend.lastName)
   const { updateFriend } = useContext(FriendsContext) as FriendContextType;
-/*   const { setNewFirstName, setNewLastName } = useContext(FriendsContext) as FriendContextType; */
 
   let navigate = useNavigate();
 
