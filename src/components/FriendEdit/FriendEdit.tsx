@@ -14,24 +14,19 @@ const FriendEdit: React.FC<FriendEditProps> = ({ showFormEditFriend, setShowEdit
   const [firstName, setFirstName] = useState<string>(friend.firstName)
   const [lastName, setLastName] = useState<string>(friend.lastName)
   const { updateFriend } = useContext(FriendsContext) as FriendContextType;
-  const { setNewFirstName, setNewLastName } = useContext(FriendsContext) as FriendContextType;
-  const { id } = useParams();
+/*   const { setNewFirstName, setNewLastName } = useContext(FriendsContext) as FriendContextType; */
 
   let navigate = useNavigate();
 
   const closeForm = () => {
     setShowEditFriend(false);
   };
-  console.log(firstName)
+
   const handleUpdateFriend = (id: string) => {
-    console.log(`asasa  ${firstName}`)
      updateFriend(friend.id, firstName, lastName )
-     setNewFirstName(firstName);
-     setNewLastName(lastName)
      navigate('/friends');
   };
-  console.log(firstName)
-  console.log(lastName)
+
   return (
     <>
       {showFormEditFriend &&

@@ -11,7 +11,6 @@ const style = bemCssModules(FriendLinkStyles);
 
 const FriendLink: React.FC<FriendProps> = ({ friend, remove }) => {
   const { firstName, lastName, status, photoUrl, id } = friend;
-  const { newFirstName, newLastName} = useContext(FriendsContext) as FriendContextType;
 
   return (
   <>

@@ -6,6 +6,7 @@ import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendBoxStyles } from './FriendBox.module.scss';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
 import { useNavigate } from 'react-router';
+import Paginate from '../Paginate';
 
 
 const style = bemCssModules(FriendBoxStyles);
@@ -28,7 +29,8 @@ const FriendBox: React.FC<FriendProps> = ({ friend }) => {
 
   return (
     <div className={style()}>
-      {status === "ACCEPTED"  ? <FriendLink friend={friend} remove={handleRemoveFriend} /> : <Friend friend={friend} accept={handleChangePendingToAccept} remove={handleRemoveFriend} />}
+      {status === "ACCEPTED" ? <FriendLink friend={friend} remove={handleRemoveFriend} /> : <Friend friend={friend} accept={handleChangePendingToAccept} remove={handleRemoveFriend} />}
+
     </div>
   )
 }

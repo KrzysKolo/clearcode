@@ -2,8 +2,6 @@ import React, { createContext, Dispatch, SetStateAction, useEffect, useState } f
 import friends from "../dataFixtures/friends";
 import { Friend, Status } from "../models/Friend";
 
-
-
 export type FriendContextType = {
   friendsList?: Friend[];
   filteredFriend: Friend[];
@@ -11,30 +9,22 @@ export type FriendContextType = {
   setSearchValue: Dispatch<SetStateAction<string>>;
   stateStatus: string;
   setStateStatus: Dispatch<SetStateAction<string>>;
-  newLastName: string;
-  newFirstName: string;
-  setNewFirstName: Dispatch<SetStateAction<string>>;
-  setNewLastName: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
-
   removeFriend: (id: string) => void;
   acceptFriend: (id: string) => void;
   updateFriend: (id: string, newFirstName: string, newLastName: string) => void;
- /*  updateFriend: (status: STATUS) => void; */
 }
 
 export const FriendsContext = createContext<FriendContextType | null>(null);
 
 
 const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
+
   const [friendsList, setFriendsList] = useState<Friend[]>([]);
   const [filteredFriend, setFilteredFriend] =useState<Friend[]>([]);
 	const [searchValue, setSearchValue] =useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [stateStatus, setStateStatus] = useState<string>(status)
-  const [newFirstName, setNewFirstName] = useState<string>('')
-  const [newLastName, setNewLastName] = useState<string>('')
-  const [isError, setIsError] = useState<boolean>(false);
 
   function getList() {
     let timer = setTimeout(() => {
@@ -42,7 +32,6 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
       setIsLoading(false);
       clearTimeout(timer)
     }, 1000);
-
   };
 
   useEffect(() => {
@@ -58,21 +47,13 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
       return item.id === id ? { ...item, status: Status.ACCEPTED, } : item;
     }))
   }
-  console.log(`${newFirstName}`)
+
   const updateFriend = (id: string, newFirstName: string, newLastName: string ) => {
-    console.log(newFirstName)
-    console.log(id)
-    setFriendsList(friendsList.map(item => {
+     setFriendsList(friendsList.map(item => {
       return item.id === id ? { ...item, firstName: `${newFirstName}`, lastName: `${newLastName}`,  } : item;
     }))
 
   };
-/*   useEffect(() => {
-    setFilteredFriend(friendsList.map(item => {
-      return item.id === id ? { ...item, id: item.id, firstName: newFirstName, lastName: newLastName,  } : item;
-    }))
-}, [newFirstName, newLastName]) */
-
 
   useEffect(() => {
     if (searchValue.trim() === "") {
@@ -97,7 +78,7 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
 
 
 return (
-  <FriendsContext.Provider value={{ filteredFriend, isLoading, removeFriend, acceptFriend, updateFriend, searchValue, setSearchValue, setStateStatus, stateStatus, newLastName, newFirstName, setNewFirstName, setNewLastName }}>
+  <FriendsContext.Provider value={{ filteredFriend, isLoading, removeFriend, acceptFriend, updateFriend, searchValue, setSearchValue, setStateStatus, stateStatus }}>
     {children}
   </FriendsContext.Provider>
 );

@@ -9,4 +9,5 @@ export { default as FriendBox } from './FriendBox';
 export { default as FriendDetailsBox } from './FriendDetailsBox';
 export { default as FriendSearch } from './FriendSearch';
 export { default as FriendEdit } from './FriendEdit';
+export { default as Paginate } from './Paginate';
 
