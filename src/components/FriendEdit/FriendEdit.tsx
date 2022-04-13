@@ -3,7 +3,7 @@ import { default as bemCssModules } from 'bem-css-modules';
 import { default as FriendEditStyles } from './FriendEdit.module.scss';
 import Button from '../Button';
 import { FriendEditProps } from '../../models/Friend';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { FriendContextType, FriendsContext } from '../../context/friendsContext';
 
 
@@ -14,15 +14,18 @@ const FriendEdit: React.FC<FriendEditProps> = ({ showFormEditFriend, setShowEdit
   const [firstName, setFirstName] = useState<string>(friend.firstName)
   const [lastName, setLastName] = useState<string>(friend.lastName)
   const { updateFriend } = useContext(FriendsContext) as FriendContextType;
-  const { setNewFirstName, setNewLastName} = useContext(FriendsContext) as FriendContextType;
+  const { setNewFirstName, setNewLastName } = useContext(FriendsContext) as FriendContextType;
+  const { id } = useParams();
 
   let navigate = useNavigate();
 
   const closeForm = () => {
     setShowEditFriend(false);
   };
-
-   const handleUpdateFriend = (id: string) => {
+  console.log(firstName)
+  const handleUpdateFriend = (id: string) => {
+    console.log(`asasa  ${firstName}`)
+     updateFriend(friend.id, firstName, lastName )
      setNewFirstName(firstName);
      setNewLastName(lastName)
      navigate('/friends');

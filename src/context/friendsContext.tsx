@@ -19,7 +19,7 @@ export type FriendContextType = {
 
   removeFriend: (id: string) => void;
   acceptFriend: (id: string) => void;
-  updateFriend: (id: string) => void;
+  updateFriend: (id: string, newFirstName: string, newLastName: string) => void;
  /*  updateFriend: (status: STATUS) => void; */
 }
 
@@ -57,16 +57,21 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
     setFriendsList(friendsList.map(item => {
       return item.id === id ? { ...item, status: Status.ACCEPTED, } : item;
     }))
-  };
-console.log(newFirstName)
-  const updateFriend = (id: string) => {
+  }
+  console.log(`${newFirstName}`)
+  const updateFriend = (id: string, newFirstName: string, newLastName: string ) => {
     console.log(newFirstName)
-    setFilteredFriend(friendsList.map(item => {
-      return item.id === id ? { ...item, id: item.id, firstName: newFirstName, lastName: newLastName,  } : item;
+    console.log(id)
+    setFriendsList(friendsList.map(item => {
+      return item.id === id ? { ...item, firstName: `${newFirstName}`, lastName: `${newLastName}`,  } : item;
     }))
 
   };
-
+/*   useEffect(() => {
+    setFilteredFriend(friendsList.map(item => {
+      return item.id === id ? { ...item, id: item.id, firstName: newFirstName, lastName: newLastName,  } : item;
+    }))
+}, [newFirstName, newLastName]) */
 
 
   useEffect(() => {
