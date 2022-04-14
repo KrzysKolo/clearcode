@@ -5,6 +5,7 @@ import { default as HeaderStyles } from './Header.module.scss';
 const style = bemCssModules(HeaderStyles);
 
 const Header: React.FC = () => {
+
   return (
     <section className={style()}>
       <div className={style('box')}>

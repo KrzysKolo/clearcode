@@ -13,18 +13,17 @@ export type FriendContextType = {
   removeFriend: (id: string) => void;
   acceptFriend: (id: string) => void;
   updateFriend: (id: string, newFirstName: string, newLastName: string) => void;
-}
+};
 
 export const FriendsContext = createContext<FriendContextType | null>(null);
-
 
 const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
 
   const [friendsList, setFriendsList] = useState<Friend[]>([]);
-  const [filteredFriend, setFilteredFriend] =useState<Friend[]>([]);
-	const [searchValue, setSearchValue] =useState<string>('')
+  const [filteredFriend, setFilteredFriend] = useState<Friend[]>([]);
+  const [searchValue, setSearchValue] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [stateStatus, setStateStatus] = useState<string>(status)
+  const [stateStatus, setStateStatus] = useState<string>(status);
 
   function getList() {
     let timer = setTimeout(() => {
@@ -44,15 +43,18 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
 
   const acceptFriend = (id: string) => {
     setFriendsList(friendsList.map(item => {
-      return item.id === id ? { ...item, status: Status.ACCEPTED, } : item;
-    }))
-  }
+      return item.id === id
+        ? { ...item, status: Status.ACCEPTED, }
+        : item;
+    }));
+  };
 
   const updateFriend = (id: string, newFirstName: string, newLastName: string ) => {
-     setFriendsList(friendsList.map(item => {
-      return item.id === id ? { ...item, firstName: `${newFirstName}`, lastName: `${newLastName}`,  } : item;
-    }))
-
+    setFriendsList(friendsList.map(item => {
+      return item.id === id
+        ? { ...item, firstName: `${newFirstName}`, lastName: `${newLastName}`, }
+        : item;
+    }));
   };
 
   useEffect(() => {
@@ -73,7 +75,7 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
               .includes(searchValue.toLowerCase().split(" ").join(""));
           })
           )
-          clearTimeout(timer)
+          clearTimeout(timer);
         }, 1000);
       }
     }
@@ -81,7 +83,17 @@ const FriendsProvider: React.FC<React.ReactNode> = ({ children }) => {
 
 
 return (
-  <FriendsContext.Provider value={{ filteredFriend, isLoading, removeFriend, acceptFriend, updateFriend, searchValue, setSearchValue, setStateStatus, stateStatus }}>
+  <FriendsContext.Provider value={{
+    filteredFriend,
+    isLoading,
+    removeFriend,
+    acceptFriend,
+    updateFriend,
+    searchValue,
+    setSearchValue,
+    setStateStatus,
+    stateStatus
+  }}>
     {children}
   </FriendsContext.Provider>
 );

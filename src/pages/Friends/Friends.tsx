@@ -7,6 +7,7 @@ import { Header, Loading, FriendsList } from '../../components';
 const style = bemCssModules(FriendsStyles);
 
 const Friends: React.FC = () => {
+
   const { isLoading } = useContext(FriendsContext) as FriendContextType;
 
   return (

@@ -5,9 +5,14 @@ import { ButtonProps } from '../../models/Friend';
 
 const style = bemCssModules(ButtonStyles);
 
-const Button: React.FC<ButtonProps> = ({title, variant, onClick}) => {
+const Button: React.FC<ButtonProps> = ({ title, variant, onClick }) => {
+
   return (
-    <div className={variant ? style('variant') : style()} onClick={onClick}> {title}</div>
+    <div
+      className={variant ? style('variant') : style()}
+      onClick={onClick}>
+        {title}
+    </div>
   )
 }
 

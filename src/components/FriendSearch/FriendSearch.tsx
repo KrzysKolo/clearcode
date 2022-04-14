@@ -7,7 +7,7 @@ const style = bemCssModules(FriendSearchStyles);
 
 const FriendSearch: React.FC = () => {
 
-  const {setSearchValue  } = useContext(FriendsContext) as FriendContextType;;
+  const { setSearchValue  } = useContext(FriendsContext) as FriendContextType;
   const [value, setValue] = useState<string>("");
 
   const handleChange = (e: { target: { value: string; }; }) => {
@@ -16,12 +16,16 @@ const FriendSearch: React.FC = () => {
 
   useEffect(() => {
     setSearchValue(value);
-    console.log(value)
   }, [value])
 
   return (
     <div className={style()}>
-      <input className={style('input')} type="text" placeholder="Search by name" value={value} onChange={handleChange} />
+      <input
+        className={style('input')}
+        type="text"
+        placeholder="Search by name"
+        value={value}
+        onChange={handleChange} />
     </div>
   )
 }

@@ -9,7 +9,10 @@ const style = bemCssModules(FriendBoxStyles);
 
 const FriendBox: React.FC<FriendProps> = ({ friend }) => {
 
-  const { removeFriend, acceptFriend, setStateStatus, stateStatus} = useContext(FriendsContext) as FriendContextType;
+  const {
+    removeFriend,
+    acceptFriend,
+    setStateStatus } = useContext(FriendsContext) as FriendContextType;
   const {status, id } = friend;
 
   const handleChangePendingToAccept = () => {
@@ -23,7 +26,14 @@ const FriendBox: React.FC<FriendProps> = ({ friend }) => {
 
   return (
     <div className={style()}>
-      {status === "ACCEPTED" ? <FriendLink friend={friend} remove={handleRemoveFriend} /> : <Friend friend={friend} accept={handleChangePendingToAccept} remove={handleRemoveFriend} />}
+      {status === "ACCEPTED"
+        ? <FriendLink
+          friend={friend}
+          remove={handleRemoveFriend} />
+        : <Friend
+          friend={friend}
+          accept={handleChangePendingToAccept}
+          remove={handleRemoveFriend} />}
     </div>
   )
 }

@@ -8,7 +8,8 @@ import { useParams } from 'react-router-dom';
 
 const style = bemCssModules(FriendDetailsStyles);
 
-const FriendDetails = () => {
+const FriendDetails: React.FC = () => {
+
   const [friendDetails, setFriendDetails] = useState<Friend[]>([]);
   const { filteredFriend } = useContext(FriendsContext) as FriendContextType;
   const { id } = useParams();

@@ -21,16 +21,23 @@ const Pagination: React.FC<PaginateProps> = ({pages, setCurrentPage, currentFrie
 
   return (
     <div className={style()}>
-        <ul className={style('pagination')}>
-            { numOfPages.map((page, index) => {
-              return (
-                  <li key={index} className={`${currentButton === page ? style('page-item active') : style('page-item') }`}><a href="#!" className="page-link"
-                      onClick={() => setCurrentButton(page)}>{page}</a>
-                  </li>
-                )
-              })
-            }
-        </ul>
+      <ul className={style('pagination')}>
+          { numOfPages.map((page, index) => {
+            return (
+              <li
+                key={index}
+                className={`${currentButton === page ? style('page-item active') : style('page-item')}`}>
+                <a
+                  href="#!"
+                  className="page-link"
+                  onClick={() => setCurrentButton(page)}>
+                    {page}
+                  </a>
+                </li>
+              )
+            })
+          }
+      </ul>
     </div>
   )
 }

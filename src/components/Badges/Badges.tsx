@@ -4,7 +4,8 @@ import { BadgetsProps } from '../../models/Friend';
 
 const style = bemCssModules(BadgesStyles);import React from 'react';
 
-const Badges: React.FC<BadgetsProps> = ({ title, variant}) => {
+const Badges: React.FC<BadgetsProps> = ({ title, variant }) => {
+
   return (
     <div className={variant ? style('variant') : style()} >
       <h2>{title.toLowerCase()}</h2>

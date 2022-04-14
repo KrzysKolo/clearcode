@@ -6,6 +6,7 @@ import { default as LoadingStyles } from './Loading.module.scss';
 const style = bemCssModules(LoadingStyles);
 
 const Loading: React.FC = () => {
+
   return (
     <div className={style()}>
       <Loader

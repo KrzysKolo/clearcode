@@ -10,7 +10,7 @@ const style = bemCssModules(FriendDetailsBoxStyles);
 
 const FriendDetailsBox: React.FC<FriendProps> = ({ friend }) => {
 
-  const { firstName, lastName, status, photoUrl } = friend;
+  const { firstName, lastName, photoUrl } = friend;
   const [showFormEditFriend, setShowEditFriend] = useState<boolean>(false);
 
   let navigate = useNavigate();
@@ -26,7 +26,10 @@ const FriendDetailsBox: React.FC<FriendProps> = ({ friend }) => {
     <>
       <div className={style()}>
         <div className={style("button")}>
-          <Button title="<< Back to list" variant={true} onClick={handleBackToList}  />
+          <Button
+            title="<< Back to list"
+            variant={true}
+            onClick={handleBackToList} />
         </div>
         <div className={style('user')}>
           <div className={style('images')}>
@@ -37,12 +40,17 @@ const FriendDetailsBox: React.FC<FriendProps> = ({ friend }) => {
               <h1>{firstName} {lastName}</h1>
             </div>
             <div>
-              <Button title='Edit Name' onClick={editName} />
+              <Button
+                title='Edit Name'
+                onClick={editName} />
             </div>
           </div>
         </div>
       </div>
-      <FriendEdit showFormEditFriend={showFormEditFriend} setShowEditFriend={setShowEditFriend} friend={friend} />
+      <FriendEdit
+        showFormEditFriend={showFormEditFriend}
+        setShowEditFriend={setShowEditFriend}
+        friend={friend} />
     </>
   )
 }

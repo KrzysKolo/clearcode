@@ -13,7 +13,10 @@ const Friend: React.FC<FriendProps> = ({ friend, accept, remove }) => {
   return (
     <div className={style()}>
       <div className={style('imageBox')}>
-        <img src={photoUrl} alt={firstName} className={style('image')} />
+        <img
+          src={photoUrl}
+          alt={firstName}
+          className={style('image')} />
       </div>
       <div className={style('personBox')}>
         <div className={style('fullName')}>
